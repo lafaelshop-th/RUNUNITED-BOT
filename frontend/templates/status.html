@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="th" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>System Status</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-zinc-950 text-white p-6">
+  <h1 class="text-4xl font-black mb-8">สถานะระบบ</h1>
+  <div class="grid gap-4">
+    {% for board in boards %}
+    <div class="bg-zinc-900 rounded-2xl p-5 flex justify-between items-center">
+      <div>
+        <div class="font-bold">{{ board.title }}</div>
+        <div class="text-sm text-zinc-400">Guild: {{ board.guild_id }} | หมดอายุ: {{ board.expires_at or 'N/A' }}</div>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="w-3 h-3 rounded-full {{ 'bg-green-500' if board.is_active else 'bg-red-500' }}"></span>
+        <span>{{ 'Online' if board.is_active else 'Expired' }}</span>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</body>
+</html>

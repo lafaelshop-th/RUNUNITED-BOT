@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="th" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+<body class="bg-zinc-950 text-white min-h-screen" x-data="{ tab: 'boards' }">
+  <div class="flex">
+    <aside class="w-64 bg-zinc-900 min-h-screen p-4 space-y-2">
+      <button @click="tab='boards'" class="w-full text-left px-4 py-3 rounded-2xl hover:bg-zinc-800">บอร์ดของฉัน</button>
+      <button @click="tab='products'" class="w-full text-left px-4 py-3 rounded-2xl hover:bg-zinc-800">สินค้า</button>
+      <button @click="tab='topup'" class="w-full text-left px-4 py-3 rounded-2xl hover:bg-zinc-800">เติมเงิน</button>
+      <button @click="tab='packages'" class="w-full text-left px-4 py-3 rounded-2xl hover:bg-zinc-800">แพ็กเกจ</button>
+      <button @click="tab='status'" class="w-full text-left px-4 py-3 rounded-2xl hover:bg-zinc-800">สถานะระบบ</button>
+    </aside>
+    <main class="flex-1 p-6">
+      <div x-show="tab==='boards'">
+        <h2 class="text-3xl font-bold mb-6">บอร์ด</h2>
+        <p class="text-zinc-400">เชื่อมต่อด้วยการใส่ Interactions Endpoint ใน Discord Developer Portal แล้วบันทึก</p>
+        <!-- Real-time status, ping, errors, connected guilds list with delete -->
+      </div>
+      <div x-show="tab==='products'">
+        <h2 class="text-3xl font-bold mb-6">จัดการสินค้า</h2>
+        <!-- Add / edit / clear stock / delete with confirms, categories, image upload/link, GIF support -->
+      </div>
+      <!-- Other tabs: topup (TrueMoney / PromptPay with admin fallback), packages with expiration, codes -->
+    </main>
+  </div>
+</body>
+</html>
